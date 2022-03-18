@@ -1,0 +1,26 @@
+server:
+  port: 8080
+
+spring:
+  jpa:
+    show-sql: true
+    database: mysql
+    hibernate:
+      ddl-auto: update
+
+  datasource:
+    url: jdbc:mysql://${DB_URL}:${DB_PORT}/${DB_NAME}?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  cloud:
+    stream:
+      bindings:
+        output:
+          destination: auth-user
+          content-type: application/json
+      kafka:
+        binder:
+          zkNodes: localhost
+          brokers: localhost
