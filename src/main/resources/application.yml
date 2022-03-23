@@ -21,10 +21,10 @@ spring:
     stream:
       bindings:
         input:
-          destination: authToUser
+          destination: ${KAFKA_TOPIC}
           content-type: application/json
-          group: userGroup
+          group: ${KAFKA_GROUP}
       kafka:
         binder:
-          zkNodes: localhost
-          brokers: localhost
+          zkNodes: ${KAFKA_ZOOKEEPER}
+          brokers: ${KAFKA_BROKER}
