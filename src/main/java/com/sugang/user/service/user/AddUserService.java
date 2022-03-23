@@ -20,10 +20,6 @@ public class AddUserService {
     public void addUser(AuthUserRequest authUserRequest) {
         User user = userRepository.save(authUserRequest.toEntity());
 
-        System.out.println(user.getUserId());
-        System.out.println(user.getName());
-        System.out.println(user.getPermissions());
-
         if (user.getPermissions() == AccessLevel.STUDENT.getAccessLevel())
             studentRepository.save(user.toStudent(authUserRequest.getGrade()));
     }
