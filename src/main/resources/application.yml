@@ -1,7 +1,10 @@
 server:
-  port: 8080
+  port: 8081
 
 spring:
+  application:
+    name: userService
+
   jpa:
     show-sql: true
     database: mysql
@@ -17,9 +20,10 @@ spring:
   cloud:
     stream:
       bindings:
-        output:
-          destination: auth-user
+        input:
+          destination: authToUser
           content-type: application/json
+          group: userGroup
       kafka:
         binder:
           zkNodes: localhost
