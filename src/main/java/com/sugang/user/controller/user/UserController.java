@@ -5,9 +5,11 @@ import com.sugang.user.controller.user.dto.request.AuthUserRequest;
 import com.sugang.user.service.user.AddUserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cloud.stream.annotation.StreamListener;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("user-service")
 @RequiredArgsConstructor
 public class UserController {
 
